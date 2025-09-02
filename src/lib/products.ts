@@ -10,8 +10,8 @@ export const products: Product[] = [
     image: "/images/products/detergent-madar-classique.jpg",
     dataAiHint: "laundry powder",
     variants: [
-      { id: "detergent-madar-classique-15g-caisse", size: "Caisse de 15g", price: 5000 },
-      { id: "detergent-madar-classique-150g", size: "150g", price: 450 },
+      { id: "detergent-madar-classique-15g-caisse", size: "Caisse de 15g (détail 50F)", price: 5000 },
+      { id: "detergent-madar-classique-150g", size: "150g (détail 450F)", price: 450 },
       { id: "detergent-madar-classique-500g", size: "500g", price: 1200 },
       { id: "detergent-madar-classique-1kg", size: "1kg", price: 2200 },
       { id: "detergent-madar-classique-3kg", size: "3kg", price: 6000 },
