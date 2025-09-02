@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
-import { Minus, Plus, Trash2, Loader2, Sparkles } from "lucide-react";
+import { Minus, Plus, Trash2, Loader2, Sparkles, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { summarizeOrderAction } from "@/app/actions";
 import { OrderSummaryOutput } from "@/ai/flows/order-summarization";
@@ -21,6 +21,7 @@ export default function Cart() {
   const [isPending, startTransition] = useTransition();
   const [isSummarizing, setIsSummarizing] = useState(false);
   const [summary, setSummary] = useState<OrderSummaryOutput | null>(null);
+  const [isLocating, setIsLocating] = useState(false);
 
   const [customerDetails, setCustomerDetails] = useState({
     name: "",
@@ -31,6 +32,44 @@ export default function Cart() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCustomerDetails((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleGeolocate = () => {
+    if (!navigator.geolocation) {
+      toast({
+        variant: "destructive",
+        title: "Géolocalisation non supportée",
+        description: "Votre navigateur ne supporte pas la géolocalisation.",
+      });
+      return;
+    }
+
+    setIsLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        // In a real app, you would use a geocoding service to convert coords to an address.
+        // For this prototype, we'll just use the coordinates.
+        setCustomerDetails((prev) => ({
+          ...prev,
+          address: `Lat: ${latitude.toFixed(5)}, Lon: ${longitude.toFixed(5)}`,
+        }));
+        setIsLocating(false);
+        toast({
+          title: "Localisation obtenue",
+          description: "Votre adresse a été mise à jour.",
+        });
+      },
+      (error) => {
+        setIsLocating(false);
+        toast({
+          variant: "destructive",
+          title: "Erreur de localisation",
+          description: "Impossible d'obtenir votre position. Veuillez vérifier vos autorisations.",
+        });
+        console.error("Geolocation error:", error);
+      }
+    );
   };
 
   const handleSummarizeOrder = () => {
@@ -163,7 +202,13 @@ export default function Cart() {
                  <Input id="phone" name="phone" type="tel" value={customerDetails.phone} onChange={handleInputChange} placeholder="Ex: 77 123 45 67" />
               </div>
                <div className="space-y-2">
-                 <Label htmlFor="address">Adresse de livraison</Label>
+                 <div className="flex items-center justify-between">
+                   <Label htmlFor="address">Adresse de livraison</Label>
+                   <Button variant="link" size="sm" onClick={handleGeolocate} disabled={isLocating} className="h-auto p-0 text-xs">
+                     {isLocating ? <Loader2 className="mr-1 h-3 w-3 animate-spin" /> : <MapPin className="mr-1 h-3 w-3" />}
+                     {isLocating ? "Localisation..." : "Me localiser"}
+                   </Button>
+                 </div>
                  <Input id="address" name="address" value={customerDetails.address} onChange={handleInputChange} placeholder="Ex: 123 Rue de Dakar, Sénégal" />
               </div>
             </div>
