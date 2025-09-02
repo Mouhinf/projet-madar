@@ -67,8 +67,8 @@ export default function Cart() {
           title: "Erreur de localisation",
           description: "Impossible d'obtenir votre position. Veuillez vérifier vos autorisations.",
         });
-        console.error("Geolocation error:", error);
-      }
+      },
+      { timeout: 10000 }
     );
   };
 
