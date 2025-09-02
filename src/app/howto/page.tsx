@@ -13,8 +13,7 @@ export default function HowToPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* The header doesn't need search functionality here, so we pass empty props */}
-      <AppHeader searchTerm="" setSearchTerm={() => {}} />
+      <AppHeader showSearch={false} />
       <main className="flex-1 bg-gray-50 py-12">
         <div className="container mx-auto px-4">
             <Button asChild variant="ghost" className="mb-4">
