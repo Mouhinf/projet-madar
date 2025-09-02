@@ -1,0 +1,220 @@
+import type { Product } from "./types";
+
+export const products: Product[] = [
+  // Détergents en poudre
+  {
+    id: "detergent-madar-classique",
+    name: "Détergent Madar Classique",
+    category: "Détergents en poudre",
+    description: "Le détergent en poudre classique de Madar, efficace pour tout votre linge.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "laundry powder",
+    variants: [
+      { id: "detergent-madar-classique-15g", size: "15g", price: 50 },
+      { id: "detergent-madar-classique-150g", size: "150g", price: 450 },
+      { id: "detergent-madar-classique-500g", size: "500g", price: 1200 },
+      { id: "detergent-madar-classique-1kg", size: "1kg", price: 2200 },
+      { id: "detergent-madar-classique-3kg", size: "3kg", price: 6000 },
+    ],
+  },
+  {
+    id: "detergent-madar-multi-usage",
+    name: "Détergent Madar Multi-Usage",
+    category: "Détergents en poudre",
+    description: "Un détergent polyvalent pour le linge et les surfaces.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "laundry soap",
+    variants: [
+      { id: "detergent-madar-multi-usage-500g", size: "500g", price: 1300 },
+      { id: "detergent-madar-multi-usage-1kg", size: "1kg", price: 2400 },
+      { id: "detergent-madar-multi-usage-3kg", size: "3kg", price: 6500 },
+    ],
+  },
+  {
+    id: "detergent-madar-auto",
+    name: "Détergent Madar Automatique",
+    category: "Détergents en poudre",
+    description: "Spécialement conçu pour les machines à laver automatiques.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "washing machine",
+    variants: [
+      { id: "detergent-madar-auto-500g", size: "500g", price: 1500 },
+      { id: "detergent-madar-auto-1kg", size: "1kg", price: 2800 },
+      { id: "detergent-madar-auto-3kg", size: "3kg", price: 7500 },
+    ],
+  },
+  {
+    id: "detergent-madar-platinum",
+    name: "Détergent Madar Platinum",
+    category: "Détergents en poudre",
+    description: "Formule multi-usage avec une forte capacité nettoyante pour les taches tenaces.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "powerful detergent",
+    variants: [
+      { id: "detergent-madar-platinum-15g", size: "15g", price: 75 },
+      { id: "detergent-madar-platinum-500g", size: "500g", price: 1800 },
+      { id: "detergent-madar-platinum-1kg", size: "1kg", price: 3200 },
+      { id: "detergent-madar-platinum-3kg", size: "3kg", price: 8500 },
+      { id: "detergent-madar-platinum-10kg", size: "10kg", price: 25000 },
+    ],
+  },
+  // Liquides vaisselle
+  {
+    id: "liquide-vaisselle-multi-usage",
+    name: "Liquide Vaisselle Madar Multi-Usage",
+    category: "Liquides vaisselle",
+    description: "Nettoie et dégraisse efficacement votre vaisselle.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "dish soap",
+    variants: [
+      { id: "liquide-vaisselle-multi-usage-45ml", size: "45ml", price: 200 },
+      { id: "liquide-vaisselle-multi-usage-225g", size: "225g", price: 750 },
+      { id: "liquide-vaisselle-multi-usage-900g", size: "900g", price: 2500 },
+    ],
+  },
+  {
+    id: "liquide-vaisselle-antiseptique",
+    name: "Liquide Vaisselle Antiseptique",
+    category: "Liquides vaisselle",
+    description: "Parfum lilas, idéal pour les saletés tenaces et un usage médical.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "antiseptic soap",
+    variants: [
+      { id: "liquide-vaisselle-antiseptique-450g", size: "450g", price: 1500 },
+      { id: "liquide-vaisselle-antiseptique-900g", size: "900g", price: 2800 },
+    ],
+  },
+  // Eaux de Javel
+  {
+    id: "javel-madar",
+    name: "Eau de Javel Madar",
+    category: "Eaux de Javel",
+    description: "Antiseptique, désinfectante et blanchissante pour une propreté impeccable.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "bleach bottle",
+    variants: [
+      { id: "javel-madar-50ml", size: "50ml", price: 150 },
+      { id: "javel-madar-500ml", size: "500ml", price: 500 },
+      { id: "javel-madar-1l", size: "1L", price: 900 },
+      { id: "javel-madar-2.5l", size: "2.5L", price: 2000 },
+      { id: "javel-madar-4.5l", size: "4.5L", price: 3500 },
+    ],
+  },
+  {
+    id: "javel-noura",
+    name: "Eau de Javel Noura",
+    category: "Eaux de Javel",
+    description: "Une alternative puissante pour désinfecter et blanchir.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "cleaning bleach",
+    variants: [
+      { id: "javel-noura-50ml", size: "50ml", price: 150 },
+      { id: "javel-noura-500ml", size: "500ml", price: 500 },
+      { id: "javel-noura-1l", size: "1L", price: 900 },
+      { id: "javel-noura-2.5l", size: "2.5L", price: 2000 },
+      { id: "javel-noura-4.5l", size: "4.5L", price: 3500 },
+    ],
+  },
+  // Savons
+  {
+    id: "savon-toilette-parfume",
+    name: "Savon de Toilette Parfumé",
+    category: "Savons",
+    description: "Disponible en pains et liquides, avec des parfums variés (fraîcheur, fleurs, nature).",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "bar soap",
+    variants: [
+      { id: "savon-toilette-pain-fraicheur", size: "Pain Fraîcheur", price: 400 },
+      { id: "savon-toilette-pain-fleurs", size: "Pain Fleurs", price: 400 },
+      { id: "savon-toilette-pain-nature", size: "Pain Nature", price: 400 },
+      { id: "savon-toilette-liquide-500ml", size: "Liquide 500ml", price: 1500 },
+    ],
+  },
+  {
+    id: "savon-antiseptique",
+    name: "Savon Antiseptique",
+    category: "Savons",
+    description: "Idéal pour l'hygiène corporelle et les soins, protège contre les germes.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "antiseptic soap",
+    variants: [
+      { id: "savon-antiseptique-pain", size: "Pain 100g", price: 500 },
+    ],
+  },
+  {
+    id: "savon-multi-usage",
+    name: "Savon Multi-usages",
+    category: "Savons",
+    description: "Savons en pains pour usage ménager ou industriel (jaune, bleu, blanc).",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "laundry soap",
+    variants: [
+      { id: "savon-multi-jaune", size: "Jaune", price: 350 },
+      { id: "savon-multi-bleu", size: "Bleu", price: 350 },
+      { id: "savon-multi-blanc", size: "Blanc", price: 350 },
+    ],
+  },
+  // Lave-mains et gels corporels
+  {
+    id: "lave-mains-parfume",
+    name: "Lave-mains Parfumé",
+    category: "Lave-mains et gels corporels",
+    description: "Nettoyant et hydratant pour un usage fréquent. Parfums : pomme, lilas, fraise, lavande, citron.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "hand soap",
+    variants: [
+      { id: "lave-mains-pomme", size: "Pomme 500ml", price: 1800 },
+      { id: "lave-mains-lilas", size: "Lilas 500ml", price: 1800 },
+      { id: "lave-mains-fraise", size: "Fraise 500ml", price: 1800 },
+      { id: "lave-mains-lavande", size: "Lavande 500ml", price: 1800 },
+      { id: "lave-mains-citron", size: "Citron 500ml", price: 1800 },
+    ],
+  },
+  // Désodorisants
+  {
+    id: "desodorisant-ambiance",
+    name: "Désodorisant d'Ambiance",
+    category: "Désodorisants",
+    description: "Parfume agréablement votre intérieur. Formats spray et liquides disponibles.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "air freshener",
+    variants: [
+      { id: "desodorisant-spray", size: "Spray 300ml", price: 1500 },
+      { id: "desodorisant-liquide", size: "Liquide 500ml", price: 2000 },
+    ],
+  },
+  // Produits complémentaires
+  {
+    id: "nettoyant-sols",
+    name: "Liquide Nettoyant Sols et Surfaces",
+    category: "Produits complémentaires",
+    description: "Pour un nettoyage en profondeur et une brillance durable de vos sols et surfaces.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "floor cleaner",
+    variants: [
+      { id: "nettoyant-sols-1l", size: "1L", price: 2500 },
+    ],
+  },
+  {
+    id: "detachant-textile",
+    name: "Détachant Textile et Lessives",
+    category: "Produits complémentaires",
+    description: "Action puissante contre les taches tout en respectant vos textiles.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "stain remover",
+    variants: [
+      { id: "detachant-textile-500ml", size: "500ml", price: 2200 },
+    ],
+  },
+  {
+    id: "desinfectant-specifique",
+    name: "Produit Désinfectant Spécifique",
+    category: "Produits complémentaires",
+    description: "Solution ciblée pour une désinfection professionnelle.",
+    image: "https://picsum.photos/400/400",
+    dataAiHint: "disinfectant spray",
+    variants: [
+      { id: "desinfectant-specifique-750ml", size: "750ml", price: 3000 },
+    ],
+  },
+];
