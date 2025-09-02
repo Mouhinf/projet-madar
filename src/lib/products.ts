@@ -7,7 +7,7 @@ export const products: Product[] = [
     name: "Détergent Madar Classique",
     category: "Détergents en poudre",
     description: "Le détergent en poudre classique de Madar, efficace pour tout votre linge.",
-    image: "/images/products/detergent-madar-classique.jpg",
+    image: "https://picsum.photos/400/400",
     dataAiHint: "laundry powder",
     variants: [
       { id: "detergent-madar-classique-15g", size: "15g", price: 50 },
