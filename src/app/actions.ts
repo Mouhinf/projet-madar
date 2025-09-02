@@ -18,7 +18,7 @@ export async function summarizeOrderAction(
     const orderInput: OrderSummaryInput = {
       customerId,
       items: cartItems.map((item) => ({
-        productId: `${item.name} (${item.variantSize})`,
+        productId: item.variantId,
         quantity: item.quantity,
         pricePerUnit: item.price,
       })),
@@ -28,6 +28,7 @@ export async function summarizeOrderAction(
     return { summary };
   } catch (error) {
     console.error("Error summarizing order:", error);
-    return { error: "Impossible de générer le résumé de la commande." };
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
+    return { error: `Impossible de générer le résumé de la commande: ${errorMessage}` };
   }
 }
