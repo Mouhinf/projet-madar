@@ -7,7 +7,7 @@ export const products: Product[] = [
     name: "Détergent Madar Classique",
     category: "Détergents en poudre",
     description: "Le détergent en poudre classique de Madar, efficace pour tout votre linge.",
-    image: "/images/products/detergent-madar-classique.jpg",
+    image: "/DMC.jpeg",
     dataAiHint: "laundry powder",
     variants: [
       { id: "detergent-madar-classique-15g-caisse", size: "Caisse de 15g (détail 50F)", price: 5000 },
@@ -22,7 +22,7 @@ export const products: Product[] = [
     name: "Détergent Madar Multi-Usage",
     category: "Détergents en poudre",
     description: "Un détergent polyvalent pour le linge et les surfaces.",
-    image: "https://picsum.photos/400/400",
+    image: "/DMMU.jpeg",
     dataAiHint: "laundry soap",
     variants: [
       { id: "detergent-madar-multi-usage-500g", size: "500g", price: 1300 },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     name: "Détergent Madar Automatique",
     category: "Détergents en poudre",
     description: "Spécialement conçu pour les machines à laver automatiques.",
-    image: "https://picsum.photos/400/400",
+    image: "/DMA.jpeg",
     dataAiHint: "washing machine",
     variants: [
       { id: "detergent-madar-auto-500g", size: "500g", price: 1500 },
@@ -48,7 +48,7 @@ export const products: Product[] = [
     name: "Détergent Madar Platinum",
     category: "Détergents en poudre",
     description: "Formule multi-usage avec une forte capacité nettoyante pour les taches tenaces.",
-    image: "https://picsum.photos/400/400",
+    image: "/DMT.jpeg",
     dataAiHint: "powerful detergent",
     variants: [
       { id: "detergent-madar-platinum-15g", size: "15g", price: 75 },
@@ -64,7 +64,7 @@ export const products: Product[] = [
     name: "Liquide Vaisselle Madar Multi-Usage",
     category: "Liquides vaisselle",
     description: "Nettoie et dégraisse efficacement votre vaisselle.",
-    image: "https://picsum.photos/400/400",
+    image: "/LVMMU.jpeg",
     dataAiHint: "dish soap",
     variants: [
       { id: "liquide-vaisselle-multi-usage-45ml", size: "45ml", price: 200 },
@@ -77,7 +77,7 @@ export const products: Product[] = [
     name: "Liquide Vaisselle Antiseptique",
     category: "Liquides vaisselle",
     description: "Parfum lilas, idéal pour les saletés tenaces et un usage médical.",
-    image: "https://picsum.photos/400/400",
+    image: "/LVA.jpeg",
     dataAiHint: "antiseptic soap",
     variants: [
       { id: "liquide-vaisselle-antiseptique-450g", size: "450g", price: 1500 },
@@ -90,7 +90,7 @@ export const products: Product[] = [
     name: "Eau de Javel Madar",
     category: "Eaux de Javel",
     description: "Antiseptique, désinfectante et blanchissante pour une propreté impeccable.",
-    image: "https://picsum.photos/400/400",
+    image: "/EJM.jpeg",
     dataAiHint: "bleach bottle",
     variants: [
       { id: "javel-madar-50ml", size: "50ml", price: 150 },
@@ -105,7 +105,7 @@ export const products: Product[] = [
     name: "Eau de Javel Noura",
     category: "Eaux de Javel",
     description: "Une alternative puissante pour désinfecter et blanchir.",
-    image: "https://picsum.photos/400/400",
+    image: "/EJN.jpeg",
     dataAiHint: "cleaning bleach",
     variants: [
       { id: "javel-noura-50ml", size: "50ml", price: 150 },
