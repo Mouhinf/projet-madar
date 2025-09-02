@@ -100,7 +100,7 @@ export default function Cart() {
                       {item.variantSize}
                     </p>
                     <p className="text-sm font-semibold">
-                      {(item.price * item.quantity).toLocaleString()} CFA
+                      {(item.price * item.quantity).toLocaleString('fr-FR')} CFA
                     </p>
                     <div className="mt-2 flex items-center justify-between">
                       <div className="flex items-center gap-1">
@@ -147,7 +147,7 @@ export default function Cart() {
           <div className="space-y-4">
             <div className="flex justify-between font-semibold">
               <span>Total</span>
-              <span>{totalPrice.toLocaleString()} CFA</span>
+              <span>{totalPrice.toLocaleString('fr-FR')} CFA</span>
             </div>
             
             <Separator />
@@ -191,7 +191,7 @@ export default function Cart() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{summary.summary}</p>
-                   <p className="mt-2 text-right font-bold">Total Confirmé: {summary.totalPrice.toLocaleString()} CFA</p>
+                   <p className="mt-2 text-right font-bold">Total Confirmé: {summary.totalPrice.toLocaleString('fr-FR')} CFA</p>
                 </CardContent>
               </Card>
             )}

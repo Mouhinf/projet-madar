@@ -61,7 +61,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               <li key={variant.id} className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground">{variant.size}</span>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold">{variant.price.toLocaleString()} CFA</span>
+                  <span className="font-semibold">{variant.price.toLocaleString('fr-FR')} CFA</span>
                   <Button size="sm" variant="ghost" onClick={() => handleAddToCart(variant)} className="h-8 w-8 p-0">
                     <PlusCircle className="h-5 w-5 text-primary" />
                     <span className="sr-only">Ajouter au panier</span>
