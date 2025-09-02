@@ -1,12 +1,19 @@
 "use client";
 
-import { Search, ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart, HelpCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Cart from "@/components/cart";
 import { useCart } from "@/hooks/use-cart";
 import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 
 interface AppHeaderProps {
   searchTerm?: string;
@@ -25,7 +32,7 @@ export default function AppHeader({ searchTerm, setSearchTerm, showSearch = true
             Madar Vente en Gros
           </Link>
         </h1>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           {showSearch && setSearchTerm && (
              <div className="relative hidden md:block">
                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -38,6 +45,22 @@ export default function AppHeader({ searchTerm, setSearchTerm, showSearch = true
                />
              </div>
           )}
+           <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary/50 hover:text-primary-foreground" asChild>
+                  <Link href="/howto">
+                    <HelpCircle className="h-6 w-6" />
+                    <span className="sr-only">Comment commander</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Comment commander</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="relative text-primary-foreground hover:bg-primary/50 hover:text-primary-foreground">
