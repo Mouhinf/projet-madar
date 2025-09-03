@@ -48,8 +48,6 @@ export default function Cart() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
-        // In a real app, you would use a geocoding service to convert coords to an address.
-        // For this prototype, we'll just use the coordinates.
         setCustomerDetails((prev) => ({
           ...prev,
           address: `Lat: ${latitude.toFixed(5)}, Lon: ${longitude.toFixed(5)}`,
@@ -98,7 +96,6 @@ export default function Cart() {
   };
   
   const handlePlaceOrder = () => {
-    // In a real app, this would submit the order to a backend.
     toast({
       title: "Commande validée !",
       description: "Notre livreur vous contactera bientôt. Merci pour votre confiance.",
@@ -110,81 +107,58 @@ export default function Cart() {
 
   return (
     <>
-      <SheetHeader>
+      <SheetHeader className="p-4 border-b">
         <SheetTitle>Votre Panier ({totalItems})</SheetTitle>
       </SheetHeader>
-      <ScrollArea className="flex-1">
-        <div className="p-4">
-          {cart.length === 0 ? (
-            <div className="flex h-full flex-col items-center justify-center text-center">
-                <p className="text-muted-foreground">Votre panier est vide.</p>
-                <p className="text-sm text-muted-foreground">Parcourez nos produits et ajoutez-les au panier.</p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {cart.map((item) => (
-                <div key={item.variantId} className="flex items-start gap-4">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-md">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={item.dataAiHint}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium">{item.name}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {item.variantSize}
-                    </p>
-                    <p className="text-sm font-semibold">
-                      {(item.price * item.quantity).toLocaleString('fr-FR')} CFA
-                    </p>
-                    <div className="mt-2 flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        <Button
-                          size="icon"
-                          variant="outline"
-                          className="h-6 w-6"
-                          onClick={() =>
-                            updateQuantity(item.variantId, item.quantity - 1)
-                          }
-                        >
-                          <Minus className="h-3 w-3" />
-                        </Button>
-                        <span>{item.quantity}</span>
-                        <Button
-                          size="icon"
-                          variant="outline"
-                          className="h-6 w-6"
-                          onClick={() =>
-                            updateQuantity(item.variantId, item.quantity + 1)
-                          }
-                        >
-                          <Plus className="h-3 w-3" />
-                        </Button>
-                      </div>
-                      <Button
-                        size="icon"
-                        variant="ghost"
-                        className="h-8 w-8 text-muted-foreground hover:text-destructive"
-                        onClick={() => removeFromCart(item.variantId)}
-                      >
-                        <Trash2 className="h-4 w-4" />
+
+      {cart.length === 0 ? (
+        <div className="flex flex-1 flex-col items-center justify-center text-center p-4">
+          <p className="text-muted-foreground">Votre panier est vide.</p>
+          <p className="text-sm text-muted-foreground">Parcourez nos produits et ajoutez-les au panier.</p>
+        </div>
+      ) : (
+        <ScrollArea className="flex-1">
+          <div className="p-4 space-y-4">
+            {cart.map((item) => (
+              <div key={item.variantId} className="flex items-start gap-4">
+                <div className="relative h-16 w-16 overflow-hidden rounded-md">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={item.dataAiHint}
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="font-medium">{item.name}</p>
+                  <p className="text-sm text-muted-foreground">{item.variantSize}</p>
+                  <p className="text-sm font-semibold">{(item.price * item.quantity).toLocaleString('fr-FR')} CFA</p>
+                  <div className="mt-2 flex items-center justify-between">
+                    <div className="flex items-center gap-1">
+                      <Button size="icon" variant="outline" className="h-6 w-6" onClick={() => updateQuantity(item.variantId, item.quantity - 1)}>
+                        <Minus className="h-3 w-3" />
+                      </Button>
+                      <span>{item.quantity}</span>
+                      <Button size="icon" variant="outline" className="h-6 w-6" onClick={() => updateQuantity(item.variantId, item.quantity + 1)}>
+                        <Plus className="h-3 w-3" />
                       </Button>
                     </div>
+                    <Button size="icon" variant="ghost" className="h-8 w-8 text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.variantId)}>
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </ScrollArea>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+      )}
+
       {cart.length > 0 && (
-        <SheetFooter className="flex-col gap-4 border-t p-4">
-          <div className="space-y-4">
-            <div className="flex justify-between font-semibold">
+        <SheetFooter className="p-4 border-t">
+          <div className="w-full space-y-4">
+             <div className="flex justify-between font-semibold">
               <span>Total</span>
               <span>{totalPrice.toLocaleString('fr-FR')} CFA</span>
             </div>
