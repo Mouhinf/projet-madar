@@ -73,7 +73,7 @@ export default function AppHeader({ searchTerm, setSearchTerm, showSearch = true
                 <span className="sr-only">Ouvrir le panier</span>
               </Button>
             </SheetTrigger>
-            <SheetContent className="grid w-full grid-rows-[auto_1fr_auto] sm:max-w-lg">
+            <SheetContent className="flex w-full flex-col p-0 sm:max-w-lg">
               <Cart />
             </SheetContent>
           </Sheet>
